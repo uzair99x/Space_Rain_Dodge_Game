@@ -1,6 +1,7 @@
-import pygame
+mport pygame
 import time
 import random
+import os
 pygame.font.init()
 
 WIDTH, HEIGHT = 800, 600
@@ -19,16 +20,20 @@ STAR_VEL = 3
 
 FONT = pygame.font.SysFont('comicsans', 30)
 
+SPACESHIP = pygame.image.load(os.path.join('Assets', 'spaceship_yellow.png'))
+SPACESHIP = pygame.transform.scale(SPACESHIP, (50, 40))
+
+
 def draw(player, elapsed_time, stars):
     WIN.blit(BackGround, (0, 0))
 
     time_text = FONT.render(f'Time: {round(elapsed_time)}s', 1, 'white')
     WIN.blit(time_text, (10, 10))
 
-    pygame.draw.rect(WIN, 'white', player)
+    WIN.blit(SPACESHIP, (player.x, player.y))
 
     for star in stars:
-        pygame.draw.rect(WIN, 'purple', star)
+        pygame.draw.rect(WIN, 'white', star)
 
     pygame.display.update()
 
