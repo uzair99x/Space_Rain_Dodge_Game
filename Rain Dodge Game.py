@@ -1,4 +1,4 @@
-mport pygame
+import pygame
 import time
 import random
 import os
@@ -20,9 +20,8 @@ STAR_VEL = 3
 
 FONT = pygame.font.SysFont('comicsans', 30)
 
-SPACESHIP = pygame.image.load(os.path.join('Assets', 'spaceship_yellow.png'))
-SPACESHIP = pygame.transform.scale(SPACESHIP, (50, 40))
-
+SPACESHIP = pygame.image.load(os.path.join('Assets', 'spaceship_red.png'))
+SPACESHIP = pygame.transform.rotate(pygame.transform.scale(SPACESHIP, (50, 40)), 180)
 
 def draw(player, elapsed_time, stars):
     WIN.blit(BackGround, (0, 0))
@@ -97,4 +96,5 @@ def main():
     pygame.QUIT
 
 if __name__ == '__main__':
+    main()
     main()
